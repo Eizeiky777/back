@@ -36,7 +36,7 @@ const {
   read: checkMusics,
   create: addMusic,
   update: updateMusic
-} = require("../controllers/music");
+} = require("../controllers/musica");
 
 //////////////////////////////// USER BRO ////////////////////////////
 const {
