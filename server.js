@@ -8,13 +8,17 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 
+app.enable('trust proxy');
 
+app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 // app.use(express.static('public'));
 
+
+
 app.use(cors());
-app.use(express.json());
+app.options('*', cors());
 
 app.use('/public', express.static('public/img'));
 
