@@ -7,10 +7,11 @@ var cors = require('cors');
 // const compression = require('compression');
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 5000;
 app.use(cors({ origin: true, credentials: true }));
+const port = process.env.PORT || 5000;
 
-app.enable('trust proxy');
+
+//app.enable('trust proxy');
 
 app.use(express.json());
 // app.use(bodyParser.json());
