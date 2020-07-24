@@ -4,11 +4,11 @@ require("dotenv").config();
 //const bodyParser=require('body-parser');
 const router = require("./routes");
 var cors = require('cors');
-const compression = require('compression');
+// const compression = require('compression');
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 5000;
-
+app.use(cors({ origin: true, credentials: true }));
 
 app.enable('trust proxy');
 
@@ -19,9 +19,9 @@ app.use(express.urlencoded({extended: true}));
 
 
 
-app.use(cors());
-app.options('*', cors());
-app.use(compression());
+
+// app.options('*', cors());
+// app.use(compression());
 
 app.use('/public', express.static('public/img'));
 app.use("/api/v1", router);
