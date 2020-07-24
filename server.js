@@ -9,7 +9,7 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 5000;
 
-
+app.options('*', cors());
 app.enable('trust proxy');
 
 app.use(express.json());
@@ -18,9 +18,7 @@ app.use(express.urlencoded({extended: true}));
 // app.use(express.static('public'));
 
 
-
-app.use(cors({origin: true, credentials: true }));
-app.options('*', cors());
+app.use(cors({origin: true, credentials: true, methods: ['GET', 'PUT', 'POST', 'DELETE', 'PATCH', 'HEAD'] }));
 app.use(compression());
 
 app.use('/public', express.static('public/img'));
